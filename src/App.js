@@ -1,11 +1,11 @@
-// src/App.js
-
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './App.css';
+import Skeleton from './Skeleton';
 
 function App({ initialData }) {
   const [data, setData] = useState(initialData || null);
+  const [loading, setLoading] = useState(!initialData);
 
   useEffect(() => {
     if (!initialData) {
@@ -15,6 +15,8 @@ function App({ initialData }) {
           setData(response.data);
         } catch (error) {
           console.error('Error fetching data:', error.message);
+        } finally {
+          setLoading(false);
         }
       };
 
@@ -22,8 +24,12 @@ function App({ initialData }) {
     }
   }, [initialData]);
 
+  if (loading) {
+    return <Skeleton />;
+  }
+
   if (!data) {
-    return <p>Loading...</p>;
+    return <p>Data not available.</p>;
   }
 
   return (

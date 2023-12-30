@@ -4,7 +4,7 @@
   padding: 20px;
 }
 
-.container {
+.container, .container-skeleton {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -38,4 +38,65 @@
 .card li {
   margin-bottom: 4px;
   color: #666;
+}
+
+/* Loading skeleton */
+.loading {
+  background-color: #f5f5f5;
+  animation: loadingAnimation 1.5s infinite ease-in-out;
+}
+
+@keyframes loadingAnimation {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.loading .card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin: 10px;
+  padding: 20px;
+  width: 200px;
+  text-align: center;
+  animation: loadingCardAnimation 1.5s infinite ease-in-out;
+}
+
+@keyframes loadingCardAnimation {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.loading .card h2 {
+  margin: 0;
+}
+
+.loading .card img {
+  width: 100px;
+  height: 100px;
+  border-radius: 5px;
+  background-color: #ddd;
+}
+
+.loading .card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.loading .card li {
+  margin-bottom: 4px;
+  background-color: #ddd;
 }
