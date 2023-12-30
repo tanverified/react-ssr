@@ -8,7 +8,7 @@ const Skeleton = () => {
         {[1, 2, 3, 4, 5].map((index) => (
           <div className='card loading' key={index}>
             <h2>Loading...</h2>
-            <img src='' alt='Loading Image' />
+            <img src='' alt={`Loading Image ${index}`} />
             <ul>
               <li>Loading...</li>
               <li>Loading...</li>
